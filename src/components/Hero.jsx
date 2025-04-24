@@ -53,7 +53,7 @@ export default function Hero() {
         <div className="relative hidden overflow-hidden md:block">
           <motion.img
             src="/apex.gif"
-            alt="Abstract hazard‑field animation"
+            alt="gif"
             className="h-full w-full object-cover opacity-80"
             transition={{ duration: 4, repeat: Infinity, repeatType: "reverse", ease: "easeInOut" }}
           />
