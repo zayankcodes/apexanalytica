@@ -1,0 +1,50 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── 1. square grid overlay ─────────────────────────────── */
+body::before{
+  content:"";
+  position:fixed;inset:0;
+  background-image:
+    linear-gradient(transparent 0 1px,#0000 0),
+    linear-gradient(90deg,transparent 0 1px,#0000 0);
+  background-size:64px 64px;
+  opacity:.04;                 /* raise/lower to taste */
+  pointer-events:none;
+  z-index:-22;                 /* sits above SVG, below content */
+}
+
+/* ── 2. keyframes ────────────────────────────────────────── */
+@keyframes spinSlow  {to{transform:rotate(360deg)}}
+@keyframes pulseGlow {0%,100%{opacity:.18}50%{opacity:.3}}
+@keyframes floatDot{
+  0%   {transform:translate(-15px,  0)}
+  50%  {transform:translate( 15px,-45px)}
+  100% {transform:translate(-15px,  0)}
+}
+@keyframes scanLine  {0%{transform:translateY(-100%)}100%{transform:translateY(100%)}}
+@keyframes spinSlow{to{transform:rotate(360deg)}}
+/* ── 3. utility shortcuts (Tailwind style) ───────────────── */
+.animate-spinSlow  {animation:spinSlow 80s linear infinite}
+.animate-pulseGlow {animation:pulseGlow 6s ease-in-out infinite}
+.animate-floatDot {animation:floatDot 10s linear infinite}
+.animate-scanLine  {animation:scanLine 6s linear infinite}
+.animate-spinSlow { animation: spinSlow 90s linear infinite; }
+body{font-family:'Rajdhani',sans-serif}
+body::before { z-index: -30; }
+body::after{
+  content:"";
+  position:fixed;inset:0;
+  background:radial-gradient(circle at 30% 40%,rgba(0,81,255,.12),transparent 60%),
+             radial-gradient(circle at 70% 60%,rgba(0,81,255,.08),transparent 55%),
+             radial-gradient(circle at 50% 120%,rgba(0,81,255,.06),transparent 65%);
+  animation: bgShift 30s ease-in-out infinite alternate;
+  pointer-events:none;
+  z-index:-22;                 /* between grid (-20) and network (-30) */
+}
+
+@keyframes bgShift{
+  0%  {background-position:30% 40%,70% 60%}
+  100%{background-position:40% 30%,60% 70%}
+}
