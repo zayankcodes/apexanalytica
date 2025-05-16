@@ -4,14 +4,18 @@ const RINGS = [480, 400, 320, 240, 160, 80];
 export default function TechBackground() {
   return (
     <svg
-      className="fixed left-1/2 top-1/2 -z-25 h-[200vmax] w-[200vmax]
+      className="fixed left-1/2 top-1/2 -z-10 h-[200vmax] w-[200vmax]
                  -translate-x-1/2 -translate-y-1/2 origin-center
                  pointer-events-none opacity-30"
       viewBox="0 0 1000 1000"
       fill="none"
     >
- 
-      <g className="animate-spinSlow origin-center" stroke="#2563ff" strokeWidth="0.8" strokeLinecap="round">
+      <g
+        className="animate-spinSlow origin-center"
+        stroke="#2563ff"
+        strokeWidth="0.8"
+        strokeLinecap="round"
+      >
         {RINGS.map((r) => (
           <circle key={r} cx="500" cy="500" r={r} />
         ))}
