@@ -34,7 +34,7 @@ export default function Hero() {
             <div className="mt-6 h-1 w-24 bg-accent transition-[width] duration-500 group-hover:w-32" />
           </motion.div>
 
-          <motion.p className="mt-6 max-w-md text-slate-300" variants={fadeUp}>
+          <motion.p className="mt-6 max-w-md text-lg text-slate-300" variants={fadeUp}>
             Apex Analytica fuses extreme-event simulation with transparent machine-learning analytics,
             arming (re)insurers, capital-markets desks and regulators with the insight they need to underwrite,
             manage and hedge systemic risk—before it strikes.
