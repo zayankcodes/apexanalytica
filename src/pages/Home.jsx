@@ -83,7 +83,7 @@ export default function Home() {
       <section className="relative py-28 overflow-hidden -mt-16">
         <div className="mx-auto max-w-7xl px-4 text-center">
           <Reveal>
-            <h2 className="mb-24 text-4xl md:text-6xl font-bold">Our Partners</h2>
+            <h2 className="mb-24 text-5xl md:text-5xl font-bold">Our Partners</h2>
           </Reveal>
 
           <div className="relative overflow-hidden">
