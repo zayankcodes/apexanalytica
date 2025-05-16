@@ -17,7 +17,7 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative z-10 mx-auto px-4 py-12 md:mt-0">
+    <section className="relative z-10 mx-auto pt-0 mt-24">
       <motion.div
         className="group relative mx-auto grid w-full max-w-6xl overflow-hidden rounded-md bg-primary-light/60 backdrop-blur-sm md:grid-cols-2"
         style={{ boxShadow: "0 8px 20px rgba(0,0,0,0.3)" }}
@@ -35,8 +35,9 @@ export default function Hero() {
           </motion.div>
 
           <motion.p className="mt-6 max-w-md text-slate-300" variants={fadeUp}>
-            Apex Analytica fuses extreme‑event simulation with transparent machine‑learning analytics,
-            arming (re)insurers, capital‑markets desks and regulators with the insight they need to underwrite, manage and hedge systemic risk—before it strikes.
+            Apex Analytica fuses extreme-event simulation with transparent machine-learning analytics,
+            arming (re)insurers, capital-markets desks and regulators with the insight they need to underwrite,
+            manage and hedge systemic risk—before it strikes.
           </motion.p>
 
           <motion.div variants={fadeUp}>

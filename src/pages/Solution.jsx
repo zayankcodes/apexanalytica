@@ -9,44 +9,44 @@ export default function Solution() {
 
       <Reveal delay={0.1}>
         <p>
-          Apex Analytica provides advanced risk analytics for insurers, reinsurers, financial institutions, and regulators, converting complex data into clear, actionable insights.
+          Apex Analytica delivers a comprehensive analytics platform designed for insurers, reinsurers, financial institutions, and regulators, translating complex catastrophe risk data into actionable insights and strategic decision-making tools.
         </p>
       </Reveal>
 
       <Reveal delay={0.2}>
-        <h2 className="text-2xl font-semibold">Comprehensive Data Integration</h2>
+        <h2 className="text-2xl font-semibold">Unified Data Platform</h2>
         <p>
-          We integrate climate, financial, and risk data into a unified platform, delivering high-quality, ready-to-use datasets for analysis.
+          Our service consolidates climate data, financial information, and exposure details into a streamlined data hub, providing consistent and reliable datasets for accurate risk assessment.
         </p>
       </Reveal>
 
       <Reveal delay={0.3}>
-        <h2 className="text-2xl font-semibold">Scenario Simulation</h2>
+        <h2 className="text-2xl font-semibold">Advanced Risk Forecasting</h2>
         <p>
-          Our advanced modeling techniques generate realistic simulations of extreme scenarios, capturing risks often overlooked by traditional models.
+          Utilizing proprietary optimization frameworks, we provide robust forecasts of extreme events, enhancing risk visibility beyond conventional models.
         </p>
       </Reveal>
 
       <Reveal delay={0.4}>
-        <h2 className="text-2xl font-semibold">Interactive Dashboards</h2>
+        <h2 className="text-2xl font-semibold">Dynamic Visualization Dashboards</h2>
         <p>
-          Intuitive dashboards visualize risks clearly, allowing users to explore insights, identify opportunities, and quickly make informed decisions.
+          Interactive dashboards clearly visualize risk scenarios, enabling stakeholders to intuitively understand risks, explore scenario impacts, and swiftly identify strategic opportunities.
         </p>
       </Reveal>
 
       <Reveal delay={0.5}>
-        <h2 className="text-2xl font-semibold">Practical Risk Management</h2>
+        <h2 className="text-2xl font-semibold">Strategic Risk Recommendations</h2>
         <p>
-          We provide tailored recommendations to optimize portfolios, strengthen resilience, and ensure regulatory compliance.
+          We offer practical guidance for optimizing risk portfolios, enhancing financial resilience, and achieving regulatory compliance, tailored specifically to organizational needs.
         </p>
       </Reveal>
 
       <Reveal delay={0.6}>
         <div className="grid gap-6 md:grid-cols-3">
           {[
-            { stat: "1000+", label: "Risk Variables" },
-            { stat: "Real-time", label: "Insights" },
-            { stat: "Transparent", label: "Diagnostics" },
+            { stat: "1000+", label: "Risk Metrics" },
+            { stat: "Interactive", label: "Dashboards" },
+            { stat: "Strategic", label: "Recommendations" },
           ].map((s, i) => (
             <Reveal key={s.stat} delay={0.7 + i * 0.1}>
               <div className="rounded-xl bg-primary-light p-6 text-center shadow">
@@ -60,7 +60,7 @@ export default function Solution() {
 
       <Reveal delay={0.9}>
         <p>
-          Apex Analytica empowers clients to confidently navigate risks in an uncertain world.
+          Apex Analytica equips organizations with precise tools and clear visualizations for confident navigation through complex risks.
         </p>
       </Reveal>
     </section>

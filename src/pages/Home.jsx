@@ -1,62 +1,142 @@
 import Hero from "../components/Hero";
 import { Reveal } from "../hooks/useReveal";
 
+/**
+ * Placeholder partner logos – swap with real assets when available.
+ */
+const partnerLogos = [
+  "https://via.placeholder.com/220x100?text=Partner+1",
+  "https://via.placeholder.com/220x100?text=Partner+2",
+  "https://via.placeholder.com/220x100?text=Partner+3",
+  "https://via.placeholder.com/220x100?text=Partner+4",
+  "https://via.placeholder.com/220x100?text=Partner+5",
+  "https://via.placeholder.com/220x100?text=Partner+6",
+  "https://via.placeholder.com/220x100?text=Partner+7",
+  "https://via.placeholder.com/220x100?text=Partner+8"
+];
+
 export default function Home() {
+  const features = [
+    {
+      title: "Research",
+      copy: "Peer-reviewed studies powering transparent, robust risk models.",
+      link: "/methodology"
+    },
+    {
+      title: "Platform",
+      copy: "All-in-one API & dashboard for live simulations and stress-tests.",
+      link: "/solution"
+    },
+    {
+      title: "Advisory",
+      copy: "Strategic guidance that turns data into actionable resilience.",
+      link: "/contact"
+    }
+  ];
+
   return (
     <>
+      {/* Hero */}
       <Hero />
 
-      <section className="mx-auto mt-10 max-w-5xl space-y-10 px-4 py-40">
+      {/* Why Apex Analytica? */}
+      <section className="mx-auto mt-16 max-w-6xl px-4 py-36 text-center space-y-16">
         <Reveal>
-          <h2 className="text-3xl font-bold">Why Apex Analytica?</h2>
+          <h2 className="text-5xl md:text-5xl font-bold">Why&nbsp;Apex&nbsp;Analytica?</h2>
         </Reveal>
 
         <Reveal delay={0.1}>
-          <p>
-            Apex Analytica builds advanced catastrophe models that are fair, transparent
-            and regulator‑ready. Our platform blends Bayesian statistics
-            and interpretable machine‑learning to reveal hidden tail‑risk with multi-domain application—turning uncertainty into opportunity for underwriters
-            and capital‑markets alike.
+          <p className="mx-auto max-w-3xl text-lg md:text-xl leading-relaxed text-slate-300">
+            We blend Bayesian statistics with transparent, interpretable machine-learning to
+            uncover hidden tail-risk. The result? Actionable insight that turns uncertainty
+            into opportunity for underwriters, investors, and regulators alike.
           </p>
         </Reveal>
 
-        <div className="grid gap-8 md:grid-cols-3 mt-5">
-          {[
-            {
-              title: "Research",
-              copy:
-                "Peer‑reviewed studies spanning climate extremes, catastrophic forgetting and AI safety underpin every model we deploy.",
-              link: "/methodology"
-            },
-            {
-              title: "Platform",
-              copy:
-                "APIs & dashboards deliver scenario generation, portfolio stress‑testing and governance analytics in a single workspace.",
-              link: "/solution"
-            },
-            {
-              title: "Advisory",
-              copy:
-                "Strategic engagements with reinsurers, governments and investors help bridge analytics to real‑world resilience.",
-              link: "/contact"
-            }
-          ].map((c, i) => (
-            <Reveal key={c.title} delay={0.2 + i * 0.1}>
+        <div className="grid gap-10 md:grid-cols-3">
+          {features.map((f, i) => (
+            <Reveal key={f.title} delay={0.2 + i * 0.1}>
               <a
-                href={c.link}
-                className="group relative overflow-hidden rounded-2xl p-6 shadow transition hover:-translate-y-1 hover:shadow-lg"
+                href={f.link}
+                className="group relative overflow-hidden rounded-2xl p-8 shadow transition hover:-translate-y-1 hover:shadow-lg"
               >
-                <span aria-hidden className="absolute left-0 top-0 h-full w-6 rounded-r-full bg-accent/40 transition-all duration-300 group-hover:w-8" />
-
-                <div className="relative z-10">
-                  <h3 className="mb-2 text-xl font-semibold group-hover:text-accent">{c.title}</h3>
-                  <p className="text-sm text-slate-200">{c.copy}</p>
+                <div className="relative z-10 flex flex-col gap-4">
+                  <h3 className="relative text-2xl md:text-3xl font-semibold group-hover:text-accent">
+                    {f.title}
+                    {/* horizontal accent underline */}
+                    <span
+                      aria-hidden
+                      className="absolute bottom-0 left-0 h-1 w-12 rounded-full bg-accent transition-all duration-300 group-hover:w-20"
+                    />
+                  </h3>
+                  <p className="text-lg leading-relaxed text-slate-200">
+                    {f.copy}
+                  </p>
                 </div>
               </a>
             </Reveal>
           ))}
         </div>
       </section>
+
+      {/* Our Partners */}
+      <section className="relative py-28 overflow-hidden -mt-16">
+        <div className="mx-auto max-w-7xl px-4 text-center">
+          <Reveal>
+            <h2 className="mb-24 text-4xl md:text-6xl font-bold">Our Partners</h2>
+          </Reveal>
+
+          <div className="relative overflow-hidden">
+            <div className="flex items-center gap-44 whitespace-nowrap animate-[marquee_120s_linear_infinite]">
+              {partnerLogos.concat(partnerLogos).map((src, i) => (
+                <img
+                  key={i}
+                  src={src}
+                  alt="partner logo"
+                  className="h-40 md:h-44 w-auto object-contain opacity-90 hover:opacity-100 transition-opacity duration-300"
+                />
+              ))}
+            </div>
+            {/* fade masks */}
+            <div className="pointer-events-none absolute inset-y-0 left-0 w-36 bg-gradient-to-r from-[#040d24] to-transparent" />
+            <div className="pointer-events-none absolute inset-y-0 right-0 w-36 bg-gradient-to-l from-[#040d24] to-transparent" />
+          </div>
+        </div>
+      </section>
     </>
   );
 }
+
+/* -------------------------------------------------------------------------
+   Utilities – attach once globally (e.g. globals.css or tailwind.config)
+   ------------------------------------------------------------------------
+@layer utilities {
+  @keyframes marquee {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+}
+
+/* -------------------------------------------------------------------------
+   🔧  Add the following to your global stylesheet or tailwind.config.js:  
+   ------------------------------------------------------------------------
+   @tailwind base;
+   @tailwind components;
+   @tailwind utilities;
+
+   @layer utilities {
+     @keyframes marquee {
+       0%   { transform: translateX(0%);   }
+       100% { transform: translateX(-50%); }
+     }
+     .mask-fade {
+     
+       -webkit-mask-image: linear-gradient(to right, transparent 0%, black 12%, black 88%, transparent 100%);
+       mask-image: linear-gradient(to right, transparent 0%, black 12%, black 88%, transparent 100%);
+     }
+   }
+
+   // If the sidebar is ~11rem wide, the `md:pl-48` (12rem) on the container
+   // makes sure the carousel never slides underneath it.
+   // Adjust the value if your sidebar width changes.
+*/

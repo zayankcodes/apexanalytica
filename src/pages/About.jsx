@@ -8,7 +8,7 @@ export default function About() {
   ];
 
   return (
-    <section className="relative mx-auto max-w-5xl px-4 py-24 md:ml-44">
+    <section className="relative mx-auto max-w-5xl px-4 py-24">
   
       
 

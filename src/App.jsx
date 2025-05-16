@@ -23,7 +23,7 @@ export default function App() {
       <Particles count={500}/>
 
       {/* main content */}
-      <main className="flex-1 pt-32 md:pl-[17rem]">  {/* 17rem = sidebar 56px + 40px */}
+      <main className="flex-1 pt-11">  {/* 17rem = sidebar 56px + 40px */}
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />

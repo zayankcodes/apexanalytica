@@ -48,3 +48,9 @@ body::after{
   0%  {background-position:30% 40%,70% 60%}
   100%{background-position:40% 30%,60% 70%}
 }
+@layer utilities {
+  @keyframes marquee {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+}
