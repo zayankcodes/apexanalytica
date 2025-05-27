@@ -4,7 +4,7 @@ const RINGS = [480, 400, 320, 240, 160, 80];
 export default function TechBackground() {
   return (
     <svg
-      className="fixed left-1/2 top-1/2 -z-10 h-[200vmax] w-[200vmax]
+      className="fixed left-1/2 top-1/2 -z- h-[200vmax] w-[200vmax]
                  -translate-x-1/2 -translate-y-1/2 origin-center
                  pointer-events-none opacity-30"
       viewBox="0 0 1000 1000"

@@ -16,10 +16,10 @@ import Insights from "./pages/Insights";
 export default function App() {
   return (
     <div className="flex min-h-screen flex-col bg-primary text-white">
-  
+      <TechBackground/>
       <HeaderBar />
       <Sidebar />
-      <TechBackground/>
+      
       <Particles count={500}/>
 
       {/* main content */}

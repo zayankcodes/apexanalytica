@@ -40,14 +40,14 @@ export default function Home() {
       <Hero />
 
       {/* Why Apex Analytica? */}
-      <section className="mx-auto mt-16 max-w-6xl px-4 py-36 text-center space-y-16">
+      <section className="mx-auto mt-16 max-w-6xl z-10 px-4 py-36 text-center space-y-16">
         <Reveal>
           <h2 className="text-5xl md:text-5xl font-bold">Why&nbsp;Apex&nbsp;Analytica?</h2>
         </Reveal>
 
         <Reveal delay={0.1}>
           <p className="mx-auto max-w-3xl text-lg md:text-xl leading-relaxed text-slate-300">
-            We blend Bayesian statistics with transparent, interpretable machine-learning to
+            We blend cutting edge robust-optimization methods with transparent, interpretable machine-learning to
             uncover hidden tail-risk. The result? Actionable insight that turns uncertainty
             into opportunity for underwriters, investors, and regulators alike.
           </p>

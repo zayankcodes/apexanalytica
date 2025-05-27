@@ -23,7 +23,7 @@ export default function Solution() {
       <Reveal delay={0.3}>
         <h2 className="text-2xl font-semibold">Advanced Risk Forecasting</h2>
         <p>
-          Utilizing proprietary optimization frameworks, we provide robust forecasts of extreme events, enhancing risk visibility beyond conventional models.
+          Utilizing our proprietary optimization framework, we provide robust forecasts of extreme events, enhancing risk visibility beyond conventional models.
         </p>
       </Reveal>
 
