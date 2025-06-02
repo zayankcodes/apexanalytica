@@ -17,7 +17,7 @@ import Insights from "./pages/Insights";
 
 export default function App() {
   // 1. compute a scale factor relative to a 1440px design
-  const scale = useViewportScale(2700 );
+  const scale = useViewportScale(2400);
 
   return (
     // Outer wrapper: will fill the screen background, etc.
@@ -30,7 +30,7 @@ export default function App() {
       <div
         // 2. set the “design width” of the inner wrapper to exactly 1440px
         style={{
-          width: "2700px",
+          width: "2400px",
           // scale up/down based on `scale`; origin = top-left ensures it anchors at (0,0)
           transform: `scale(${scale})`,
           transformOrigin: "top left",
