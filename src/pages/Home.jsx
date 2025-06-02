@@ -72,14 +72,14 @@ export default function Home() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
           <Reveal delay={0.2}>
             <img
-              src="/images/jhu-logo.png"
+              src="jhu.png"
               alt="Johns Hopkins University"
               className="mx-auto h-40 object-contain"
             />
           </Reveal>
           <Reveal delay={0.3}>
             <img
-              src="/images/nvidia-logo.png"
+              src="/nvda.jpeg"
               alt="NVIDIA"
               className="mx-auto h-40 object-contain"
             />
