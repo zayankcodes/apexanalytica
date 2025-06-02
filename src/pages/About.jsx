@@ -1,3 +1,5 @@
+//About
+
 import { Reveal } from "../hooks/useReveal";
 
 export default function About() {

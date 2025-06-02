@@ -1,67 +1,76 @@
+
+
+// pages/solution.js
 import { Reveal } from "../hooks/useReveal";
 
 export default function Solution() {
   return (
-    <section className="mx-auto max-w-5xl space-y-10 px-4 py-24">
+    <section className="mx-auto max-w-5xl space-y-12 px-4 py-24">
+
       <Reveal>
-        <h1 className="text-4xl font-bold">Our Solution</h1>
+        <h1 className="text-4xl font-bold text-center">Solution</h1>
       </Reveal>
+
 
       <Reveal delay={0.1}>
-        <p>
-          Apex Analytica delivers a comprehensive analytics platform designed for insurers, reinsurers, financial institutions, and regulators, translating complex catastrophe risk data into actionable insights and strategic decision-making tools.
+        <p className="text-lg text-center text-slate-300 max-w-3xl mx-auto">
+          Turn complex risk data into clear, actionable decisions with Apex Analytica’s suite of services designed to
+          empower underwriters, investors, and regulators.
         </p>
       </Reveal>
 
-      <Reveal delay={0.2}>
-        <h2 className="text-2xl font-semibold">Unified Data Platform</h2>
-        <p>
-          Our service consolidates climate data, financial information, and exposure details into a streamlined data hub, providing consistent and reliable datasets for accurate risk assessment.
-        </p>
-      </Reveal>
+      <div className="grid gap-10 md:grid-cols-2">
+        <Reveal delay={0.2}>
+          <div className="rounded-2xl bg-primary-light p-6 shadow hover:shadow-lg transition">
+            <h2 className="text-2xl font-semibold">Data Integration</h2>
+            <p className="mt-2 text-slate-200">
+              Consolidate climate, financial, and exposure data into a single, reliable platform—removing silos and ensuring
+              consistency across your analytics pipeline.
+            </p>
+          </div>
+        </Reveal>
 
-      <Reveal delay={0.3}>
-        <h2 className="text-2xl font-semibold">Advanced Risk Forecasting</h2>
-        <p>
-          Utilizing our proprietary optimization framework, we provide robust forecasts of extreme events, enhancing risk visibility beyond conventional models.
-        </p>
-      </Reveal>
+        <Reveal delay={0.3}>
+          <div className="rounded-2xl bg-primary-light p-6 shadow hover:shadow-lg transition">
+            <h2 className="text-2xl font-semibold">Risk Forecasting</h2>
+            <p className="mt-2 text-slate-200">
+              Leverage our Ω-Robustness framework to generate forward-looking scenarios—capturing extreme events before they
+              happen and preparing your organization for any outcome.
+            </p>
+          </div>
+        </Reveal>
 
-      <Reveal delay={0.4}>
-        <h2 className="text-2xl font-semibold">Dynamic Visualization Dashboards</h2>
-        <p>
-          Interactive dashboards clearly visualize risk scenarios, enabling stakeholders to intuitively understand risks, explore scenario impacts, and swiftly identify strategic opportunities.
-        </p>
-      </Reveal>
+        <Reveal delay={0.4}>
+          <div className="rounded-2xl bg-primary-light p-6 shadow hover:shadow-lg transition">
+            <h2 className="text-2xl font-semibold">Visualization & Dashboards</h2>
+            <p className="mt-2 text-slate-200">
+              Interactive, web-based dashboards and secure APIs make it easy to explore scenario outcomes, monitor key metrics,
+              and share insights across teams.
+            </p>
+          </div>
+        </Reveal>
 
-      <Reveal delay={0.5}>
-        <h2 className="text-2xl font-semibold">Strategic Risk Recommendations</h2>
-        <p>
-          We offer practical guidance for optimizing risk portfolios, enhancing financial resilience, and achieving regulatory compliance, tailored specifically to organizational needs.
-        </p>
-      </Reveal>
+        <Reveal delay={0.5}>
+          <div className="rounded-2xl bg-primary-light p-6 shadow hover:shadow-lg transition">
+            <h2 className="text-2xl font-semibold">Strategic Advisory</h2>
+            <p className="mt-2 text-slate-200">
+              Tailored consulting services help translate analytics into action—optimizing portfolios, informing reinsurance
+              strategies, and ensuring regulatory compliance.
+            </p>
+          </div>
+        </Reveal>
+      </div>
 
+ 
       <Reveal delay={0.6}>
-        <div className="grid gap-6 md:grid-cols-3">
-          {[
-            { stat: "1000+", label: "Risk Metrics" },
-            { stat: "Interactive", label: "Dashboards" },
-            { stat: "Strategic", label: "Recommendations" },
-          ].map((s, i) => (
-            <Reveal key={s.stat} delay={0.7 + i * 0.1}>
-              <div className="rounded-xl bg-primary-light p-6 text-center shadow">
-                <p className="text-3xl font-extrabold text-accent">{s.stat}</p>
-                <p className="mt-2 text-sm text-slate-300">{s.label}</p>
-              </div>
-            </Reveal>
-          ))}
+        <div className="text-center">
+          <p className="text-lg text-slate-300 inline-block">
+            Ready to transform your risk management?<br />
+            <a href="/contact" className="mt-4 inline-block text-accent font-semibold underline hover:no-underline">
+              Let’s Talk
+            </a>
+          </p>
         </div>
-      </Reveal>
-
-      <Reveal delay={0.9}>
-        <p>
-          Apex Analytica equips organizations with precise tools and clear visualizations for confident navigation through complex risks.
-        </p>
       </Reveal>
     </section>
   );

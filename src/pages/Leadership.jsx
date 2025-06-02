@@ -44,7 +44,7 @@ export default function Leadership() {
   return (
     <section className="mx-auto max-w-4xl space-y-12 px-4 py-24">
       <Reveal>
-        <h1 className="text-4xl font-bold">Leadership</h1>
+        <h1 className="text-4xl font-bold">Team</h1>
       </Reveal>
 
       {people.map((p, i) => (
