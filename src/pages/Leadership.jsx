@@ -13,10 +13,11 @@ export default function Leadership() {
           at&nbsp;Pareto Technologies and CTO at&nbsp;MARK Labs; currently Chair of the Board at
           Emerita. Doctoral candidate in Computational Mathematics at Johns Hopkins.
 
-          Linkedin: 
+          Linkedin: https://www.linkedin.com/in/jghauri/
         </>
       ),
       imgAlt: "Portrait of Junaid Ghauri",
+      image: "/junaid.png",
     },
     {
       name: "Brynna Shale",
@@ -25,10 +26,13 @@ export default function Leadership() {
         <>
           Drives business process design, data pipelines and operational
           efficiency. Background in Computer Science &amp; Analytics; incoming
-          Goldman Sachs (Controllers Division) associate. Graduate of NYU Stern.
+          Goldman Sachs (Controllers Division) associate. Graduate of NYU Stern. 
+
+          Linkedin: https://www.linkedin.com/in/brynna-shale-ab544b1b9/
         </>
       ),
       imgAlt: "Portrait of Brynna Shale",
+      image: "/brynna1.png",
     },
     {
       name: "Siddharth Rohilla",
@@ -38,9 +42,12 @@ export default function Leadership() {
           Focuses on financial modelling, investment analysis and fundraising.
           Ex-Investment Banking Analyst at Bentley Associates. Holds an MS in
           Finance (Brandeis Intl.) and an MBA with a tech concentration.
+
+          Linkedin: https://www.linkedin.com/in/sidrohilla/
         </>
       ),
       imgAlt: "Portrait of Siddharth Rohilla",
+      image: "/sid.jpeg"
     },
   ];
 
@@ -57,7 +64,7 @@ export default function Leadership() {
               {/* Enlarged avatar */}
               <div className="h-48 w-48 overflow-hidden rounded-full bg-accent/20 shadow-lg">
                 <img
-                  src="/avatar-placeholder.png"
+                  src={p.image}
                   alt={p.imgAlt}
                   className="h-full w-full object-cover"
                 />

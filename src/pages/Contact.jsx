@@ -13,8 +13,7 @@ export default function Contact() {
 
       <Reveal delay={0.1}>
         <p>
-          Our headquarters are in XX, and our team works across XX. Drop us a message—whether you’d like a demo, a datasheet
-          or just a coffee chat.
+          
         </p>
       </Reveal>
 

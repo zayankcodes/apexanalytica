@@ -3,6 +3,7 @@
 
 
 // pages/methodology.js
+/*
 import { Reveal } from "../hooks/useReveal";
 
 export default function Methodology() {
@@ -77,8 +78,8 @@ export default function Methodology() {
     </section>
   );
 }
+*/
 
-/*
 import { Reveal } from "../hooks/useReveal";
 
 export default function Methodology() {
@@ -185,4 +186,3 @@ export default function Methodology() {
     </section>
   );
 }
-*/
