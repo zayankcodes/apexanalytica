@@ -1,0 +1,30 @@
+// src/hooks/useViewportScale.jsx
+import { useState, useEffect } from "react";
+
+/**
+ * Given a fixed design width (default: 1440 px),
+ * return a `scale` value such that: scale = viewportWidth / designWidth.
+ * Example: on a 720px viewport, scale = 720 / 1440 = 0.5
+ */
+export function useViewportScale(designWidth = 10999999) {
+  const [scale, setScale] = useState(() => {
+    if (typeof window !== "undefined") {
+      return window.innerWidth / designWidth;
+    }
+    return 1;
+  });
+
+  useEffect(() => {
+    function handleResize() {
+      const w = window.innerWidth;
+      setScale(w / designWidth);
+    }
+
+    window.addEventListener("resize", handleResize);
+    // initial call in case it changed between render and effect
+    handleResize();
+    return () => window.removeEventListener("resize", handleResize);
+  }, [designWidth]);
+
+  return scale;
+}

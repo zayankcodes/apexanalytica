@@ -1,6 +1,14 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+/* src/index.css */
+
+html {
+  /* root font-size scales with viewport width:
+     At 1440px wide: font-size = 16px
+     At 720px wide : font-size =  8px (half) */
+  font-size: calc((1vw * 100) / 1440 * 16);
+}
 
 /* ── 1. square grid overlay ─────────────────────────────── */
 body::before{
