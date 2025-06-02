@@ -1,6 +1,6 @@
 // pages/methodology.js
 
-/*
+
 
 // pages/methodology.js
 import { Reveal } from "../hooks/useReveal";
@@ -48,7 +48,7 @@ export default function Methodology() {
           <div className="rounded-2xl bg-primary-light p-6 shadow hover:shadow-lg transition">
             <h2 className="text-2xl font-semibold">Robustness Evaluation & Stress Testing</h2>
             <ul className="mt-2 list-disc list-inside text-slate-200 space-y-1">
-              <li>10,000+ scenario simulations</li>
+              
               <li>Perturbation & drift analysis</li>
               <li>Generalization decay measurement</li>
             </ul>
@@ -77,32 +77,31 @@ export default function Methodology() {
     </section>
   );
 }
-*/
 
-// pages/methodology.js
+/*
 import { Reveal } from "../hooks/useReveal";
 
 export default function Methodology() {
   return (
     <section className="mx-auto max-w-5xl space-y-10 px-4 py-24">
-      {/* Page Title */}
+
       <Reveal>
         <h1 className="text-4xl font-bold">Methodology</h1>
       </Reveal>
 
-      {/* Subtitle */}
+
       <Reveal delay={0.1}>
         <h2 className="text-2xl font-semibold">Our Engine: The Science of Robust Foresight</h2>
       </Reveal>
 
-      {/* Intro */}
+
       <Reveal delay={0.2}>
         <p className="text-lg leading-relaxed">
           Apex Analytica’s methodological core is <strong>Ω-Robustness</strong>—a hybrid optimization framework built for extreme uncertainty. Designed to move beyond traditional statistical assumptions, our approach synthesizes rare events, balances competing objectives, and illuminates the fault lines in black-box systems.
         </p>
       </Reveal>
 
-      {/* Definition */}
+     
       <Reveal delay={0.3}>
         <h3 className="text-xl font-semibold">What is Ω-Robustness?</h3>
         <ul className="mt-2 list-disc list-inside space-y-1 text-lg leading-relaxed">
@@ -114,7 +113,7 @@ export default function Methodology() {
         </p>
       </Reveal>
 
-      {/* Core Components */}
+      
       <Reveal delay={0.4}>
         <h3 className="text-xl font-semibold">Core Components of Our Methodology</h3>
       </Reveal>
@@ -177,7 +176,7 @@ export default function Methodology() {
         </Reveal>
       </div>
 
-      {/* Conclusion */}
+    
       <Reveal delay={0.9}>
         <p className="text-lg leading-relaxed">
           Traditional modeling breaks down under feedback loops, adversarial agents, or unstable data regimes. Apex’s methodology is built for systemic resilience, regulatory trustworthiness, AI safety, and generalizability. Whether you're managing sovereign climate risk, underwriting AI models, or structuring reinsurance treaties, our methodology equips you for the known unknowns—and the unknown unknowns.
@@ -186,3 +185,4 @@ export default function Methodology() {
     </section>
   );
 }
+*/
