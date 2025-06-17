@@ -79,7 +79,7 @@ export default function Home() {
           </Reveal>
           <Reveal delay={0.3}>
             <img
-              src="/nvda.jpeg"
+              src="/IMG_6760.jpeg"
               alt="NVIDIA"
               className="mx-auto h-40 object-contain"
             />

@@ -22,24 +22,17 @@ export default function App() {
   return (
     // Outer wrapper: will fill the screen background, etc.
     <div className="min-h-screen bg-primary text-white overflow-hidden">
-      {/* 
-        Instead of rendering Header/Sidebar/Particles directly,
-        we nest them inside a fixed-width container (1440px).
-        Then we scale that container by the computed factor.
-      */}
+    
       <div
-        // 2. set the “design width” of the inner wrapper to exactly 1440px
+     
         style={{
           width: "2400px",
-          // scale up/down based on `scale`; origin = top-left ensures it anchors at (0,0)
+         
           transform: `scale(${scale})`,
           transformOrigin: "top left",
         }}
       >
-        {/* Everything inside here is “rendered at 1440px design width,”
-            then the outer div will visually shrink or grow it uniformly. */}
-
-        {/* TechBackground is behind everything */}
+        
         <TechBackground />
 
         {/* These sit at fixed positions, but because they're inside

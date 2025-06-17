@@ -17,7 +17,7 @@ export default function About() {
   <div className="relative z-10 space-y-16">
         {/* Heading */}
         <Reveal>
-          <h1 className="mx-auto max-w-3xl text-center text-5xl font-bold text-white">
+          <h1 className="text-4xl font-bold text-center">
             About Apex Analytica
           </h1>
         </Reveal>
@@ -26,9 +26,9 @@ export default function About() {
         <Reveal>
           <div className="mx-auto grid w-full max-w-3xl grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {[
-              { stat: "10,000+", label: "Synthetic Extreme Scenarios Modeled" },
-              { stat: "30+", label: "Climate & AI Risk Variables Integrated" },
-              { stat: "3", label: "Peer-reviewed Methodologies Developed" },
+              { stat: "40%", label: "of extreme events lack models; we cover AI, cyber, and cascading risks." },
+              { stat: "7.2%", label: "CAT bond CAGR + 34% synthetic data demand." },
+              { stat: "50%", label: "better risk ID, 30% lower underwriting costs for clients." },
             ].map((s) => (
               <div
                 key={s.stat}

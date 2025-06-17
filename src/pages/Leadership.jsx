@@ -1,5 +1,4 @@
-// Leadership.jsx
-
+// src/pages/Leadership.jsx
 import { Reveal } from "../hooks/useReveal";
 
 export default function Leadership() {
@@ -12,12 +11,11 @@ export default function Leadership() {
           Leads R &amp; D on probabilistic catastrophe models. Former General Partner
           at&nbsp;Pareto Technologies and CTO at&nbsp;MARK Labs; currently Chair of the Board at
           Emerita. Doctoral candidate in Computational Mathematics at Johns Hopkins.
-
-          Linkedin: https://www.linkedin.com/in/jghauri/
         </>
       ),
       imgAlt: "Portrait of Junaid Ghauri",
       image: "/junaid.png",
+      linkedin: "https://www.linkedin.com/in/jghauri/",
     },
     {
       name: "Brynna Shale",
@@ -26,13 +24,12 @@ export default function Leadership() {
         <>
           Drives business process design, data pipelines and operational
           efficiency. Background in Computer Science &amp; Analytics; incoming
-          Goldman Sachs (Controllers Division) associate. Graduate of NYU Stern. 
-
-          Linkedin: https://www.linkedin.com/in/brynna-shale-ab544b1b9/
+          Goldman Sachs (Controllers Division) associate. Graduate of NYU Stern.
         </>
       ),
       imgAlt: "Portrait of Brynna Shale",
-      image: "/brynna1.png",
+      image: "/IMG_6758.jpeg",
+      linkedin: "https://www.linkedin.com/in/brynna-shale-ab544b1b9/",
     },
     {
       name: "Siddharth Rohilla",
@@ -42,12 +39,11 @@ export default function Leadership() {
           Focuses on financial modelling, investment analysis and fundraising.
           Ex-Investment Banking Analyst at Bentley Associates. Holds an MS in
           Finance (Brandeis Intl.) and an MBA with a tech concentration.
-
-          Linkedin: https://www.linkedin.com/in/sidrohilla/
         </>
       ),
       imgAlt: "Portrait of Siddharth Rohilla",
-      image: "/sid.jpeg"
+      image: "/IMG_6759.jpeg",
+      linkedin: "https://www.linkedin.com/in/sidrohilla/",
     },
   ];
 
@@ -73,6 +69,16 @@ export default function Leadership() {
               <h2 className="text-2xl font-semibold">{p.name}</h2>
               <p className="text-sm text-slate-300">{p.role}</p>
               <p className="mt-2 text-slate-200">{p.bio}</p>
+
+              {/* Clickable LinkedIn button */}
+              <a
+                href={p.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-20 inline-block bg-accent px-6 py-2 text-sm font-semibold tracking-widest text-primary transition hover:-translate-y-0.5 hover:brightness-110 hover:shadow-[0_0_12px_#0051ff]"
+              >
+                View LinkedIn Profile
+              </a>
             </div>
           </Reveal>
         ))}
