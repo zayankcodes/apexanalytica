@@ -3,17 +3,15 @@ import { useState, useEffect } from "react";
 import { Reveal } from "../hooks/useReveal";
 
 /**
- * Helper to fetch via AllOrigins, either as JSON (raw=false)
- * or as plain text (raw=true).
+ * Helper to proxy any URL through CodeTabs (no CORS issues).
+ * Returns raw text.
  */
-function fetchViaAllOrigins(url, raw = false) {
-  const endpoint = raw
-    ? "https://api.allorigins.win/raw?url="
-    : "https://api.allorigins.win/get?url=";
-  return fetch(endpoint + encodeURIComponent(url)).then((res) => {
-    if (!res.ok) throw new Error(`Failed to fetch ${url}`);
-    return raw ? res.text() : res.json();
-  });
+async function fetchProxy(url) {
+  const proxyUrl =
+    "https://api.codetabs.com/v1/proxy?quest=" + encodeURIComponent(url);
+  const res = await fetch(proxyUrl);
+  if (!res.ok) throw new Error(`Proxy fetch failed for ${url}`);
+  return res.text();
 }
 
 export default function Insights() {
@@ -24,41 +22,40 @@ export default function Insights() {
   useEffect(() => {
     (async () => {
       try {
-        // 1) Fetch the Medium RSS feed
-        const rssResponse = await fetchViaAllOrigins(
+        // 1) Load and parse the RSS feed from Medium
+        const rssXmlString = await fetchProxy(
           "https://medium.com/feed/@apex_analytica"
         );
         const parser = new DOMParser();
-        const rssXml = parser.parseFromString(rssResponse.contents, "text/xml");
-        const items = Array.from(rssXml.querySelectorAll("item")).slice(0, 6);
+        const rssDoc = parser.parseFromString(rssXmlString, "text/xml");
+        const items = Array.from(rssDoc.querySelectorAll("item")).slice(0, 6);
 
-        // 2) Extract basic info
-        const basicPosts = items.map((item) => {
+        // 2) Extract basic info + short description
+        const basic = items.map((item) => {
           const title = item.querySelector("title")?.textContent || "";
           const link = item.querySelector("link")?.textContent || "";
           const pubDate = item.querySelector("pubDate")?.textContent || "";
 
-          // Grab a short description (strip HTML)
           const rawHtml =
             item.querySelector("content\\:encoded")?.textContent ||
             item.querySelector("description")?.textContent ||
             "";
-          const text = rawHtml.replace(/<[^>]+>/g, "").trim();
+          const textOnly = rawHtml.replace(/<[^>]+>/g, "").trim();
           const description =
-            text.length > 150 ? text.slice(0, 150).trim() + "..." : text;
+            textOnly.length > 150
+              ? textOnly.slice(0, 150).trim() + "..."
+              : textOnly;
 
-          return { title, link, pubDate, description };
+          return { title, link, pubDate, description, descHtml: rawHtml };
         });
 
-        // 3) For each post, try to fetch its HTML and pull og:image / fall back to RSS <img>
-        const postsWithImages = await Promise.all(
-          basicPosts.map(async (post) => {
+        // 3) For each post, fetch its HTML via proxy and pull og:image / fallback to RSS <img>
+        const withImages = await Promise.all(
+          basic.map(async (post) => {
             let image = null;
             try {
-              const html = await fetchViaAllOrigins(post.link, true);
-              const doc = parser.parseFromString(html, "text/html");
-
-              // Priority: og:image, twitter:image, link[rel=image_src]
+              const htmlString = await fetchProxy(post.link);
+              const doc = parser.parseFromString(htmlString, "text/html");
               image =
                 doc
                   .querySelector('meta[property="og:image"]')
@@ -69,28 +66,20 @@ export default function Insights() {
                 doc.querySelector('link[rel="image_src"]')?.href ||
                 null;
             } catch {
-              // ignore fetch errors, we'll try RSS fallback next
-              image = null;
+              // ignore
             }
-
-            // 4) If still no image, fall back to first <img> in RSS description
             if (!image) {
-              const descHtml =
-                items
-                  .find((it) => it.querySelector("link")?.textContent === post.link)
-                  ?.querySelector("description")?.textContent || "";
-              const match = descHtml.match(/<img[^>]+src="([^">]+)"/);
-              image = match ? match[1] : null;
+              const m = post.descHtml.match(/<img[^>]+src="([^">]+)"/);
+              image = m ? m[1] : null;
             }
-
             return { ...post, image };
           })
         );
 
-        setPosts(postsWithImages);
-      } catch (err) {
-        console.error(err);
-        setError(err.message);
+        setPosts(withImages);
+      } catch (e) {
+        console.error(e);
+        setError("Load failed");
       } finally {
         setLoading(false);
       }
@@ -99,18 +88,17 @@ export default function Insights() {
 
   return (
     <section className="mx-auto max-w-5xl space-y-12 px-4 py-24">
-      {/* Page Title */}
       <Reveal>
         <h1 className="text-4xl font-bold text-center">Insights</h1>
       </Reveal>
 
-      {/* Loading & Error */}
       {loading && (
         <p className="text-center text-lg text-slate-300">Loading articles…</p>
       )}
-      {error && <p className="text-center text-red-500">Error: {error}</p>}
+      {error && (
+        <p className="text-center text-red-500">{error}</p>
+      )}
 
-      {/* Articles Grid */}
       {!loading && !error && (
         <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-3">
           {posts.map((post, i) => (
@@ -121,7 +109,6 @@ export default function Insights() {
                 rel="noopener noreferrer"
                 className="block rounded-2xl bg-primary-light shadow hover:shadow-lg transition overflow-hidden"
               >
-                {/* Cover Image */}
                 {post.image && (
                   <div className="h-56 w-full overflow-hidden">
                     <img
@@ -131,11 +118,13 @@ export default function Insights() {
                     />
                   </div>
                 )}
-
-                {/* Text Content */}
                 <div className="p-6">
-                  <h2 className="text-2xl font-semibold mb-2">{post.title}</h2>
-                  <p className="text-slate-200 mb-4">{post.description}</p>
+                  <h2 className="text-2xl font-semibold mb-2">
+                    {post.title}
+                  </h2>
+                  <p className="text-slate-200 mb-4">
+                    {post.description}
+                  </p>
                   <p className="text-xs text-slate-400">
                     {new Date(post.pubDate).toLocaleDateString(undefined, {
                       year: "numeric",
