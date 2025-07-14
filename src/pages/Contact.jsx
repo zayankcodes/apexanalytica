@@ -31,7 +31,7 @@ export default function Contact() {
       {/* simple contact form */}
       <Reveal delay={0.3}>
         <form
-          action="https://formspree.io/f/mgvyzvje"
+          action="https://formspree.io/f/xanbwvgd"
           method="POST"
           className="space-y-6"
         >
