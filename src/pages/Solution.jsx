@@ -1,14 +1,16 @@
 import { useState, useEffect } from "react";
 import { Reveal } from "../hooks/useReveal";
 import { motion, AnimatePresence } from "framer-motion";
+import { PlayCircle } from "lucide-react";
 
 export default function Solution() {
   // ───────────────────────────────────────────────────────────── STATE ──────────
-  const [activeIdx, setActiveIdx] = useState(null);
+  const [activeIdx, setActiveIdx] = useState<number | null>(null);
 
   // Prevent page scroll when modal is open
   useEffect(() => {
     document.body.classList.toggle("overflow-hidden", activeIdx !== null);
+    if (activeIdx !== null) window.scrollTo({ top: 0 });
   }, [activeIdx]);
 
   const services = [
@@ -39,7 +41,7 @@ export default function Solution() {
   ];
 
   // ──────────────────────────────────────────────────────────── HELPERS ─────────
-  const openModal = (idx) => setActiveIdx(idx);
+  const openModal = (idx: number) => setActiveIdx(idx);
   const closeModal = () => setActiveIdx(null);
 
   // ────────────────────────────────────────────────────────────── RENDER ────────
@@ -68,6 +70,16 @@ export default function Solution() {
                 className="group relative rounded-2xl bg-primary-light shadow transition-all duration-500 ease-out h-48 hover:overflow-visible cursor-pointer"
                 onClick={() => openModal(idx)}
               >
+                {/* Instruction Overlay */}
+                <div className="absolute inset-0 z-30 flex flex-col items-center justify-center text-center opacity-0 transition-opacity duration-300 pointer-events-none group-hover:opacity-100">
+                  <PlayCircle className="w-12 h-12 mb-2 text-white drop-shadow" />
+                  <span className="text-white text-sm font-medium leading-tight">
+                    Hover to preview
+                    <br />
+                    Click to watch
+                  </span>
+                </div>
+
                 {/* Hover Video – smaller pop‑out */}
                 <div
                   className="absolute inset-0 z-20 flex items-center justify-center opacity-0 scale-75 transition-all duration-500 ease-out group-hover:scale-110 group-hover:opacity-100 pointer-events-none"
@@ -85,7 +97,7 @@ export default function Solution() {
                 {/* Card content */}
                 <div className="relative z-10 p-6 h-full flex flex-col justify-center space-y-2 transition-opacity duration-300 group-hover:opacity-0">
                   <h2 className="text-2xl font-semibold">{title}</h2>
-                  <p className="mt-2 text-slate-200">{copy}</p>
+                  <p className="mt-2 text-slate-200 line-clamp-3">{copy}</p>
                 </div>
               </motion.div>
             </Reveal>
@@ -110,7 +122,7 @@ export default function Solution() {
       <AnimatePresence>
         {activeIdx !== null && (
           <motion.div
-            className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 backdrop-blur-sm p-4 -mt-44"
+            className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 backdrop-blur-sm p-4"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -118,7 +130,7 @@ export default function Solution() {
           >
             <motion.div
               layoutId={`video-${activeIdx}`}
-              className="relative max-w-5xl w-full"
+              className="relative max-w-5xl w-full max-h-[90vh]"
               onClick={(e) => e.stopPropagation()}
             >
               <video
