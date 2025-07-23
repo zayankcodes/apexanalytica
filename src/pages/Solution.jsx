@@ -5,7 +5,7 @@ import { PlayCircle } from "lucide-react";
 
 export default function Solution() {
   // ───────────────────────────────────────────────────────────── STATE ──────────
-  const [activeIdx, setActiveIdx] = useState<number | null>(null);
+  const [activeIdx, setActiveIdx] = useState(null);
 
   // Prevent page scroll when modal is open
   useEffect(() => {
@@ -41,7 +41,7 @@ export default function Solution() {
   ];
 
   // ──────────────────────────────────────────────────────────── HELPERS ─────────
-  const openModal = (idx: number) => setActiveIdx(idx);
+  const openModal = (idx) => setActiveIdx(idx);
   const closeModal = () => setActiveIdx(null);
 
   // ────────────────────────────────────────────────────────────── RENDER ────────
@@ -156,3 +156,4 @@ export default function Solution() {
     </>
   );
 }
+
