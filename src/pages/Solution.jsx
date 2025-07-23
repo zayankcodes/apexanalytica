@@ -72,10 +72,8 @@ export default function Solution() {
               >
                 {/* Instruction Overlay */}
                 <div className="absolute inset-0 z-30 flex flex-col items-center justify-center text-center opacity-0 transition-opacity duration-300 pointer-events-none group-hover:opacity-100">
-                  <PlayCircle className="w-12 h-12 mb-2 text-white drop-shadow" />
-                  <span className="text-white text-sm font-medium leading-tight">
-                    Hover to preview
-                    <br />
+                  <PlayCircle className="w-12 h-12 mb-1 text-black drop-shadow-md" />
+                  <span className="text-black text-sm font-medium leading-tight">
                     Click to watch
                   </span>
                 </div>
@@ -130,7 +128,7 @@ export default function Solution() {
           >
             <motion.div
               layoutId={`video-${activeIdx}`}
-              className="relative max-w-5xl w-full max-h-[90vh]"
+              className="relative max-w-5xl w-full max-h-[90vh] -translate-y-[5vh]"
               onClick={(e) => e.stopPropagation()}
             >
               <video
@@ -156,4 +154,3 @@ export default function Solution() {
     </>
   );
 }
-
