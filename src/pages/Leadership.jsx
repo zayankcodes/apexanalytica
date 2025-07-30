@@ -27,7 +27,7 @@ export default function Leadership() {
         </>
       ),
       imgAlt: "Portrait of Georgios Korpas",
-      image: "", // Placeholder – add path when available
+      image: "/gergios.png", // Placeholder – add path when available
       linkedin: "https://www.linkedin.com/in/georgios-korpas/", // TODO: add Georgios’ LinkedIn URL when available
     },
   ];
